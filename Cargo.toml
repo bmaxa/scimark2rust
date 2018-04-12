@@ -1,0 +1,12 @@
+[package]
+name = "scimark2"
+version = "1.0.0"
+authors = ["Branimir Maksimovic <branimir.maksimovic@gmail.com>"]
+
+[dependencies]
+getopts="^0.2"
+
+[profile.release]
+opt-level = 3
+lto = true
+#target-cpu = haswell
