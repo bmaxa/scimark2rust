@@ -1,4 +1,7 @@
 #![feature(iterator_step_by)]
+#![allow(non_snake_case)]
+#![allow(non_upper_case_globals)]
+
 mod lu;
 use lu::*;
 mod fft;

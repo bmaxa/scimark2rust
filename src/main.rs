@@ -1,3 +1,6 @@
+#![allow(non_snake_case)]
+#![allow(non_upper_case_globals)]
+
 extern crate scimark2;
 extern crate getopts;
 use getopts::*;
@@ -43,7 +46,7 @@ fn main() {
 
     let mut R = Random::new_seed(RANDOM_SEED);
     let args: Vec<String> = env::args().collect();
-    let matches = options.parse(&args).unwrap();
+    if let Ok(matches) = options.parse(&args) {
 
     if matches.opt_present("l") {
         FFT_size = LG_FFT_SIZE;
@@ -79,6 +82,9 @@ fn main() {
     println!("MonteCarlo      Mflops: {:8.2}",res[3]);
     println!("Sparse matmult  Mflops: {:8.2}     (N={}, nz={})",res[4],Sparse_size_M,Sparse_size_nz);
     println!("LU              Nflops: {:8.2}     (M={}, N={})",res[5],LU_size,LU_size);
+    } else {
+        print_usage(options);
+    }
 }
 fn print_banner(){
     println!("**                                                              **");
