@@ -1,4 +1,3 @@
-#![feature(iterator_step_by)]
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
 
@@ -151,7 +150,7 @@ pub fn kernel_measureLU(N:i32,min_time:f64,R:&mut Random)->f64{
 
     let (A1,A2,mut A) = R.matrix(N,N);
     let (lu1,lu2,mut lu) = allocate_2d(N as usize,N as usize);
-    let mut pivot = vec![0;N as usize];   
+    let mut pivot = vec![0;N as usize];
     let mut pivot = Slice::new(&mut pivot);
 
     loop {
